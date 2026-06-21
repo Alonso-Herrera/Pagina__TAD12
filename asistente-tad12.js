@@ -3,28 +3,6 @@
   const root = document.getElementById('tad-assistant-root');
   if (!root) return;
 
-  root.innerHTML = `
-    <button id="tad-fab" title="Abrir asistente">🤖</button>
-    <div id="tad-panel" class="tad-hidden">
-      <div class="tad-header">
-        <h3>Asistente TAD 12</h3>
-        <button id="tad-close">✕</button>
-      </div>
-      <div id="tad-messages">
-        <div class="tad-msg bot">¡Hola! Soy tu asistente de datos laborales. ¿En qué puedo ayudarte hoy?</div>
-      </div>
-      <div id="tad-chips" class="tad-chips">
-        <button class="tad-chip">Brecha de género</button>
-        <button class="tad-chip">Impacto COVID-19</button>
-        <button class="tad-chip">¿Qué es la TGP?</button>
-      </div>
-      <div class="tad-input-area">
-        <textarea id="tad-input" placeholder="Escribe tu duda..." rows="1"></textarea>
-        <button id="tad-send">➤</button>
-      </div>
-    </div>
-  `;
-
   const fab     = document.getElementById('tad-fab');
   const panel   = document.getElementById('tad-panel');
   const close   = document.getElementById('tad-close');

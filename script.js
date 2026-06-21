@@ -24,12 +24,13 @@ DATA.brecha = DATA.toMas.map((m, i) => parseFloat((m - DATA.toFem[i]).toFixed(2)
 // ============================================
 let currentPage = 0;
 const pages = [
-  'page-inicio', 'page-exploratorio', 'page-indicadores',
+  'page-inicio', 'page-quienes-somos', 'page-exploratorio', 'page-indicadores',
   'page-genero', 'page-tendencias', 'page-powerbi',
   'page-descargas', 'page-colaboradores'
 ];
 const pageMap = {
   'inicio':        'page-inicio',
+  'quienes-somos': 'page-quienes-somos',
   'exploratorio':  'page-exploratorio',
   'indicadores':   'page-indicadores',
   'genero':        'page-genero',
@@ -38,6 +39,13 @@ const pageMap = {
   'descargables':  'page-descargas',
   'colaboradores': 'page-colaboradores'
 };
+
+function closeMobileMenu() {
+  const mobileNav = document.getElementById('mobileNav');
+  if (mobileNav) mobileNav.classList.remove('active');
+  const toggle = document.getElementById('menuToggle');
+  if (toggle) toggle.setAttribute('aria-expanded', 'false');
+}
 
 function showPage(pageId) {
   pages.forEach(id => {
@@ -63,8 +71,21 @@ function navigateTo(pageKeyOrId) {
   if (index !== -1) currentPage = index;
   updateNavActive(pageId);
   updateArrows();
-  const mobileNav = document.getElementById('mobileNav');
-  if (mobileNav) mobileNav.classList.remove('active');
+  closeMobileMenu();
+}
+
+function scrollToSection(sectionId) {
+  showPage('page-inicio');
+  currentPage = 0;
+  updateNavActive('page-inicio');
+  updateArrows();
+  closeMobileMenu();
+  window.setTimeout(() => {
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 60);
 }
 
 function navigatePrev() {
@@ -93,6 +114,25 @@ function updateNavActive(pageId) {
       link.classList.add('active');
     }
   });
+  updateNavIndicator();
+}
+
+function updateNavIndicator(targetLink) {
+  const indicator = document.getElementById('navIndicator');
+  const desktopNav = document.querySelector('.nav-desktop');
+  if (!indicator || !desktopNav) return;
+
+  const activeLink = targetLink || desktopNav.querySelector('.nav-link.active');
+  if (!activeLink) {
+    indicator.style.opacity = '0';
+    return;
+  }
+
+  const navRect = desktopNav.getBoundingClientRect();
+  const linkRect = activeLink.getBoundingClientRect();
+  indicator.style.opacity = '1';
+  indicator.style.width = `${Math.max(24, linkRect.width - 12)}px`;
+  indicator.style.transform = `translateX(${linkRect.left - navRect.left + 6}px)`;
 }
 
 function updateArrows() {
@@ -451,10 +491,19 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
+      const section = this.getAttribute('data-section');
+      if (section) {
+        scrollToSection(section);
+        return;
+      }
       const page = this.getAttribute('data-page');
       const pageId = pageMap[page];
       if (pageId) navigateTo(pageId);
     });
+    if (link.classList.contains('nav-link')) {
+      link.addEventListener('mouseenter', () => updateNavIndicator(link));
+      link.addEventListener('focus', () => updateNavIndicator(link));
+    }
   });
 
   // Logo
@@ -500,6 +549,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Inicializar gráficos
   initAllCharts();
+  updateNavIndicator();
+});
+
+window.addEventListener('resize', function () {
+  updateNavIndicator();
 });
 
 // ============================================
@@ -509,6 +563,7 @@ window.navigateTo          = navigateTo;
 window.navigatePrev        = navigatePrev;
 window.navigateNext        = navigateNext;
 window.toggleMobileMenu    = toggleMobileMenu;
+window.scrollToSection     = scrollToSection;
 window.showGrupo           = showGrupo;
 window.filterChartByGender = filterChartByGender;
 window.filterTendencias    = filterTendencias;

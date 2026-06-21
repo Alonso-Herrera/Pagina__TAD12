@@ -23,11 +23,14 @@
   <div class="container">
     <div class="header-content">
       <div class="logo" onclick="navigateTo('page-inicio')" aria-label="Inicio">
-        <div class="logo-icon">T12</div>
+        <span class="logo-icon">
+          <img src="IMG/Utilidades/Sena.png" alt="Logo de TAD 12" />
+        </span>
         <span class="logo-text">TAD 12</span>
       </div>
       <nav class="nav-desktop" aria-label="Navegación principal">
         <a class="nav-link active" data-page="inicio" href="#">Inicio</a>
+        <a class="nav-link" data-page="quienes-somos" href="#">Quiénes somos</a>
         <a class="nav-link" data-page="exploratorio" href="#">Exploratorio</a>
         <a class="nav-link" data-page="indicadores" href="#">Indicadores</a>
         <a class="nav-link" data-page="genero" href="#">Género</a>
@@ -35,11 +38,13 @@
         <a class="nav-link" data-page="powerbi" href="#">Power BI</a>
         <a class="nav-link" data-page="descargables" href="#">Descargas</a>
         <a class="nav-link" data-page="colaboradores" href="#">Equipo</a>
+        <div class="nav-indicator" id="navIndicator" aria-hidden="true"></div>
       </nav>
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     </div>
     <nav class="nav-mobile" id="mobileNav" aria-label="Navegación móvil">
       <a class="nav-link-mobile active" data-page="inicio" href="#">Inicio</a>
+      <a class="nav-link-mobile" data-page="quienes-somos" href="#">Quiénes somos</a>
       <a class="nav-link-mobile" data-page="exploratorio" href="#">Exploratorio</a>
       <a class="nav-link-mobile" data-page="indicadores" href="#">Indicadores</a>
       <a class="nav-link-mobile" data-page="genero" href="#">Género</a>
@@ -65,10 +70,6 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span>📊</span>
-          <span>Análisis de Datos · TAD 12 · 2025</span>
-        </div>
         <h1 class="hero-title">Mercado Laboral<br>Colombiano</h1>
         <p class="hero-subtitle">
           Plataforma de visualización y análisis de indicadores laborales nacionales.
@@ -80,6 +81,9 @@
           </button>
           <button class="btn btn-secondary" onclick="navigateTo('page-powerbi')">
             📈 Ver Power BI
+          </button>
+          <button class="btn btn-secondary" onclick="navigateTo('page-quienes-somos')">
+            👥 Conócenos
           </button>
         </div>
         <div class="hero-stats">
@@ -157,6 +161,7 @@
         <div class="footer-links">
           <h4>Secciones</h4>
           <ul>
+            <li><a href="#" onclick="navigateTo('page-quienes-somos')">Quiénes somos</a></li>
             <li><a href="#" onclick="navigateTo('page-exploratorio')">Análisis Exploratorio</a></li>
             <li><a href="#" onclick="navigateTo('page-indicadores')">Indicadores</a></li>
             <li><a href="#" onclick="navigateTo('page-genero')">Género</a></li>
@@ -181,13 +186,87 @@
 </main>
 
 <!-- ============================================
+     PÁGINA 2: QUIÉNES SOMOS
+     ============================================ -->
+<main id="page-quienes-somos" class="page">
+  <div class="page-header">
+    <div class="container">
+        <div class="page-header-icon page-header-icon-image">
+          <img src="IMG/Utilidades/Sena.png" alt="Icono del equipo TAD 12" />
+        </div>
+          <h1>Quiénes Somos</h1>
+          <p>Centro de formación, misión, visión y enfoque pedagógico del proyecto</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="about-cascade">
+        <div class="about-cascade-hero">
+          <span class="about-kicker">Proyecto académico con enfoque visual</span>
+          <h3>Transformamos datos laborales en una experiencia clara y útil</h3>
+          <p>
+            Somos un equipo de formación en análisis de datos que convierte información oficial del DANE en una
+            plataforma web fácil de explorar. La página está diseñada para contar quiénes somos, explicar el
+            propósito del proyecto y dar contexto antes de entrar a los gráficos e indicadores.
+          </p>
+        </div>
+
+        <div class="about-cascade-media">
+          <figure class="about-media about-media-cascade">
+            <img src="IMG/Utilidades/Tic.jpg" alt="Centro de formación del proyecto TAD 12" />
+            <figcaption>Centro de formación donde se desarrolló la propuesta TAD 12</figcaption>
+          </figure>
+        </div>
+
+        <div class="about-cascade-grid">
+          <article class="mission-card about-cascade-card about-cascade-card-left">
+            <h4>Misión</h4>
+            <p>
+              Presentar el comportamiento del mercado laboral colombiano con una interfaz moderna, accesible y
+              orientada a la toma de decisiones y al aprendizaje.
+            </p>
+          </article>
+          <article class="mission-card mission-card-alt about-cascade-card about-cascade-card-right">
+            <h4>Visión</h4>
+            <p>
+              Consolidar una plataforma de referencia para analizar empleo, género y tendencias con datos confiables
+              y visualizaciones que realmente ayuden a interpretar la información.
+            </p>
+          </article>
+        </div>
+
+        <div class="about-note about-note-wide">
+          <h4>Qué vas a encontrar aquí</h4>
+          <p>
+            Esta sección resume el centro de formación, el sentido del proyecto y la forma en que el equipo traduce
+            datos complejos en una experiencia web más clara. Después puedes seguir con el análisis exploratorio,
+            los indicadores, el análisis de género y el tablero Power BI.
+          </p>
+        </div>
+
+
+        <div class="hero-buttons hero-buttons-left">
+          <button class="btn btn-navy" onclick="navigateTo('page-indicadores')">Ver indicadores</button>
+          <button class="btn btn-outline" onclick="navigateTo('page-colaboradores')">Conocer el equipo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================
      PÁGINA 2: ANÁLISIS EXPLORATORIO
      ============================================ -->
 <main id="page-exploratorio" class="page">
   <div class="page-header">
     <div class="container">
       <div class="page-header-inner">
-        <div class="page-header-icon">🔍</div>
+        <div class="page-header-icon page-header-icon-image">
+          <img src="IMG/Utilidades/Lupa.jpg" alt="Icono del equipo TAD 12" />
+        </div>
         <div>
           <h1>Análisis Exploratorio</h1>
           <p>Descripción del dataset, variables y estructura de los datos del mercado laboral colombiano</p>
@@ -367,9 +446,9 @@
 <main id="page-indicadores" class="page">
   <div class="page-header">
     <div class="container">
-      <div class="page-header-inner">
-        <div class="page-header-icon">📉</div>
-        <div>
+             <div class="page-header-icon page-header-icon-image">
+          <img src="IMG/Utilidades/Metrica.png" alt="Icono del equipo TAD 12" />
+        </div>
           <h1>Indicadores Laborales</h1>
           <p>Evolución de TGP, TO, TD y TS con gráficos interactivos y filtros dinámicos</p>
         </div>
@@ -411,9 +490,27 @@
         </div>
       </div>
 
+      <div class="insight-strip">
+        <article class="insight-card">
+          <span class="insight-number">01</span>
+          <h3>Brecha persistente</h3>
+          <p>La ocupación femenina sigue por debajo de la masculina en todo el período, con una diferencia estructural fuerte.</p>
+        </article>
+        <article class="insight-card">
+          <span class="insight-number">02</span>
+          <h3>Choque 2020</h3>
+          <p>La pandemia marca la caída más severa de la serie y permite comparar el ritmo real de recuperación posterior.</p>
+        </article>
+        <article class="insight-card">
+          <span class="insight-number">03</span>
+          <h3>Lectura rápida</h3>
+          <p>Los gráficos de esta página resumen tendencias, comparaciones y variaciones para una lectura más ágil.</p>
+        </article>
+      </div>
+
       <!-- Gráfico principal: Ocupación por género -->
       <div class="charts-grid">
-        <div class="chart-container" style="grid-column:1/-1">
+        <div class="chart-container">
           <div class="chart-header">
             <div>
               <div class="chart-title">Evolución de la Tasa de Ocupación por Género (2010–2025)</div>
@@ -425,7 +522,7 @@
               <button class="filter-btn" onclick="filterChartByGender('masculino',this)">Masculino</button>
             </div>
           </div>
-          <canvas id="ocupacionChart" height="100"></canvas>
+          <canvas id="ocupacionChart" height="220"></canvas>
         </div>
 
         <div class="chart-container">
@@ -435,7 +532,7 @@
               <div class="chart-subtitle">Evolución anual nacional</div>
             </div>
           </div>
-          <canvas id="desocupacionChart" height="160"></canvas>
+          <canvas id="desocupacionChart" height="220"></canvas>
         </div>
 
         <div class="chart-container">
@@ -445,7 +542,7 @@
               <div class="chart-subtitle">Por género — último año</div>
             </div>
           </div>
-          <canvas id="comparativaChart" height="160"></canvas>
+          <canvas id="comparativaChart" height="220"></canvas>
         </div>
       </div>
 
@@ -478,8 +575,9 @@
 <main id="page-genero" class="page">
   <div class="page-header">
     <div class="container">
-      <div class="page-header-inner">
-        <div class="page-header-icon">⚥</div>
+        <div class="page-header-icon page-header-icon-image">
+          <img src="IMG/Utilidades/Genero.png" alt="Icono del equipo TAD 12" />
+        </div>
         <div>
           <h1>Análisis de Género</h1>
           <p>Comparativa de indicadores laborales entre mujeres y hombres en Colombia</p>
@@ -526,7 +624,7 @@
               <div class="chart-subtitle">Diferencia en puntos porcentuales</div>
             </div>
           </div>
-          <canvas id="brechaChart" height="180"></canvas>
+          <canvas id="brechaChart" height="220"></canvas>
         </div>
 
         <div class="chart-container">
@@ -536,19 +634,38 @@
               <div class="chart-subtitle">Evolución 2010–2025</div>
             </div>
           </div>
-          <canvas id="desocupacionGeneroChart" height="180"></canvas>
+          <canvas id="desocupacionGeneroChart" height="220"></canvas>
         </div>
       </div>
 
       <!-- Análisis narrativo -->
       <div style="margin-top:2.5rem">
-        <div class="content-grid">
-          <div></div>
-          <div>
+        <div class="genre-story-grid">
+          <div class="genre-story-column">
             <div class="info-box" style="margin-bottom:1.25rem">
               <strong>Contexto:</strong> La brecha de género en el mercado laboral colombiano es una de las más amplias de América Latina,
               con diferencias estructurales que persisten a lo largo de los 15 años analizados.
             </div>
+            <div class="genre-quick-card">
+              <h3>Lectura rápida</h3>
+              <p>Este bloque resume por qué la brecha no es solo una variación anual, sino una estructura persistente en el mercado laboral.</p>
+              <div class="genre-quick-stats">
+                <div>
+                  <span>TO mujeres</span>
+                  <strong>45.4%</strong>
+                </div>
+                <div>
+                  <span>TO hombres</span>
+                  <strong>71.2%</strong>
+                </div>
+                <div>
+                  <span>Brecha</span>
+                  <strong>25.8 pp</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="genre-story-column">
             <div class="findings-box">
               <div class="findings-title">⚥ Hallazgos clave del análisis de género</div>
               <ul class="findings-list">
@@ -572,8 +689,9 @@
 <main id="page-tendencias" class="page">
   <div class="page-header">
     <div class="container">
-      <div class="page-header-inner">
-        <div class="page-header-icon">📈</div>
+            <div class="page-header-icon page-header-icon-image">
+          <img src="IMG/Utilidades/Metrica.png" alt="Icono del equipo TAD 12" />
+        </div>
         <div>
           <h1>Tendencias Históricas</h1>
           <p>Evolución del mercado laboral colombiano 2010–2025 y hitos clave</p>
@@ -631,7 +749,7 @@
             <button class="filter-btn" onclick="filterTendencias('td',this)">TD</button>
           </div>
         </div>
-        <canvas id="tendenciasChart" height="100"></canvas>
+        <canvas id="tendenciasChart" height="220"></canvas>
       </div>
 
       <!-- Impacto COVID -->
@@ -679,9 +797,9 @@
 <main id="page-powerbi" class="page">
   <div class="page-header">
     <div class="container">
-      <div class="page-header-inner">
-        <div class="page-header-icon">🟡</div>
-        <div>
+         <div class="page-header-icon page-header-icon-image">
+          <img src="IMG/Utilidades/Power bi.png" alt="Icono del equipo TAD 12" />
+        </div>
           <h1>Dashboard Power BI</h1>
           <p>Reporte interactivo completo del análisis del mercado laboral colombiano</p>
         </div>
@@ -753,8 +871,6 @@
               <div class="pbi-dot"></div>
               <span>Reporte activo</span>
             </div>
-            <div class="pbi-info-badge">📅 Datos: 2010–2025</div>
-            <div class="pbi-info-badge">📊 Fuente: DANE Colombia</div>
           </div>
           <div style="font-size:.75rem;color:var(--text-secondary)">
             Si el reporte requiere autenticación, usa el botón "Abrir en Power BI"
@@ -887,7 +1003,9 @@
   <div class="page-header">
     <div class="container">
       <div class="page-header-inner">
-        <div class="page-header-icon">👥</div>
+        <div class="page-header-icon page-header-icon-image">
+          <img src="IMG/Utilidades/Sena.png" alt="Icono del equipo TAD 12" />
+        </div>
         <div>
           <h1>Equipo TAD 12</h1>
           <p>Estudiantes y docentes que desarrollaron este proyecto de análisis de datos</p>
@@ -898,6 +1016,43 @@
 
   <section class="section">
     <div class="container">
+      <div class="team-showcase">
+        <div class="team-showcase-photo">
+          <img src="IMG/Utilidades/Grupal.jpeg"Equipo TAD 12" />
+        </div>
+        <div class="team-showcase-copy">
+          <span class="about-kicker">Equipo y acompañamiento</span>
+          <h2 class="section-title" style="text-align:left;margin-bottom:.5rem">Nuestro equipo</h2>
+          <p class="content-text" style="margin-bottom:0">
+            Este proyecto fue desarrollado con acompañamiento académico y trabajo colaborativo. Primero verás dos
+            apartados para maestros, luego los dos grupos de trabajo que construyeron el análisis y las visualizaciones.
+          </p>
+        </div>
+      </div>
+
+      <div class="team-teachers-grid">
+        <article class="teacher-card">
+          <div class="teacher-card-photo">
+            <img src="IMG/Aprendices/Perfil.jpeg" alt="Foto del Maestro 1" />
+          </div>
+          <div class="teacher-card-head">
+            <span class="teacher-badge">Maestro 1</span>
+            <h3>Director académico</h3>
+          </div>
+          <p>Orientación metodológica, revisión de la estructura analítica y validación de los hallazgos del proyecto.</p>
+        </article>
+        <article class="teacher-card teacher-card-alt">
+          <div class="teacher-card-photo">
+            <img src="IMG/team-placeholder.svg" alt="Foto del Maestro 2" />
+          </div>
+          <div class="teacher-card-head">
+            <span class="teacher-badge">Maestro 2</span>
+            <h3>Acompañamiento técnico</h3>
+          </div>
+          <p>Supervisión del diseño web, orden visual de los apartados y coherencia entre narrativa, datos y gráficos.</p>
+        </article>
+      </div>
+
       <div class="team-tabs">
         <button class="tab-btn tab-active" id="btn-grupo1" onclick="showGrupo('grupo1')">Grupo 1</button>
         <button class="tab-btn" id="btn-grupo2" onclick="showGrupo('grupo2')">Grupo 2</button>
@@ -910,28 +1065,60 @@
         </div>
         <div class="team-grid">
           <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/Aprendices/Perfil.jpeg" alt="Foto de Alonso Herrera" /></div>
             <div class="team-avatar">A</div>
             <h4>Alonso Herrera</h4>
-            <p>Desarrollo web y arquitectura del proyecto</p>
+            <p>Full stack y arquitectura del proyecto</p>
             <span class="team-role">Dev Lead</span>
           </div>
           <div class="team-card">
-            <div class="team-avatar">M</div>
-            <h4>Miembro 2</h4>
+            <div class="team-card-photo"><img src="IMG/Aprendices/Jesus Solano.jpeg" alt="Foto de Jesus Solano" /></div>
+            <div class="team-avatar">J</div>
+            <h4>Jesus Solano</h4>
             <p>Análisis exploratorio y limpieza de datos</p>
             <span class="team-role">Data Analyst</span>
           </div>
           <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/Aprendices/Cindry.jpeg" alt="Foto de Cindry tovar" /></div>
             <div class="team-avatar">C</div>
-            <h4>Miembro 3</h4>
-            <p>Visualizaciones y dashboards Power BI</p>
-            <span class="team-role">BI Developer</span>
+            <h4>Cindry tovar</h4>
+            <p>Análisis exploratorio y limpieza de datos</p>
+            <span class="team-role">Data Analyst</span>
           </div>
           <div class="team-card">
-            <div class="team-avatar">D</div>
-            <h4>Miembro 4</h4>
+            <div class="team-card-photo"><img src="IMG/Aprendices/Keren.jpeg" alt="Foto de Keren" /></div>
+            <div class="team-avatar">K</div>
+            <h4>Keren</h4>
+            <p>Visualizaciones y dashboards Power BI</p>
+            <span class="team-role">BI Developer</span>
+  
+          </div>
+              <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/Aprendices/Luis Luna.jpeg" alt="Foto de Luis Luna" /></div>
+            <div class="team-avatar">L</div>
+            <h4>Luis luna</h4>
             <p>Análisis estadístico y documentación</p>
             <span class="team-role">Analyst</span>
+               </div>
+
+              <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/Aprendices/Shanellys.jpeg" alt="Foto de Shanellys" /></div>
+            <div class="team-avatar">S</div>
+            <h4>Shanellys</h4>
+            <p>Creación de informe/documentación</p>
+            <span class="team-role">Documentación</span>
+          </div>
+          <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/Aprendices/Gabriela.jpeg" alt="Foto de Gabriela" /></div>
+            <div class="team-avatar">G</div>
+            <h4>Gabriela</h4>
+            <p>Redes Sociales</p>
+            <span class="team-role">Marketing</span>
+              
+
+          </div>
+
+          </div>
           </div>
         </div>
       </div>
@@ -943,24 +1130,28 @@
         </div>
         <div class="team-grid">
           <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/team-placeholder.svg" alt="Foto de Miembro 5" /></div>
             <div class="team-avatar">E</div>
             <h4>Miembro 5</h4>
             <p>Análisis de brechas de género</p>
             <span class="team-role">Analyst</span>
           </div>
           <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/team-placeholder.svg" alt="Foto de Miembro 6" /></div>
             <div class="team-avatar">F</div>
             <h4>Miembro 6</h4>
             <p>Modelado de tendencias y proyecciones</p>
             <span class="team-role">Data Scientist</span>
           </div>
           <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/team-placeholder.svg" alt="Foto de Miembro 7" /></div>
             <div class="team-avatar">G</div>
             <h4>Miembro 7</h4>
             <p>Diseño de reportes y presentaciones</p>
             <span class="team-role">Designer</span>
           </div>
           <div class="team-card">
+            <div class="team-card-photo"><img src="IMG/team-placeholder.svg" alt="Foto de Miembro 8" /></div>
             <div class="team-avatar">H</div>
             <h4>Miembro 8</h4>
             <p>Integración de datos y validación</p>

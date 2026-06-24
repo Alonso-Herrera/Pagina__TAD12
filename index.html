@@ -32,9 +32,16 @@
         <a class="nav-link active" data-page="inicio" href="#">Inicio</a>
         <a class="nav-link" data-page="quienes-somos" href="#">Quiénes somos</a>
         <a class="nav-link" data-page="exploratorio" href="#">Exploratorio</a>
-        <a class="nav-link" data-page="indicadores" href="#">Indicadores</a>
-        <a class="nav-link" data-page="genero" href="#">Género</a>
-        <a class="nav-link" data-page="tendencias" href="#">Tendencias</a>
+        <div class="nav-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Análisis <span class="arrow">▼</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" data-page="indicadores" href="#">Indicadores</a>
+            <a class="dropdown-item" data-page="genero" href="#">Género</a>
+            <a class="dropdown-item" data-page="tendencias" href="#">Tendencias</a>
+          </div>
+        </div>
         <a class="nav-link" data-page="powerbi" href="#">Power BI</a>
         <a class="nav-link" data-page="descargables" href="#">Descargas</a>
         <a class="nav-link" data-page="colaboradores" href="#">Equipo</a>

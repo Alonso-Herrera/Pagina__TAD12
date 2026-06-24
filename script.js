@@ -568,3 +568,64 @@ window.showGrupo           = showGrupo;
 window.filterChartByGender = filterChartByGender;
 window.filterTendencias    = filterTendencias;
 window.showPbiError        = showPbiError;
+
+// ============================================
+// LÓGICA DEL MENÚ DESPLEGABLE
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Manejar clics en los elementos del dropdown
+  const dropdownItems = document.querySelectorAll('.dropdown-item');
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const page = item.getAttribute('data-page');
+      navigateTo(page);
+    });
+  });
+
+  // Asegurar que el indicador de navegación funcione con el dropdown
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  if (dropdownToggle) {
+    dropdownToggle.addEventListener('mouseenter', () => {
+      updateNavIndicator(dropdownToggle);
+    });
+  }
+});
+
+// Modificar updateNavActive para manejar dropdown-items
+const originalUpdateNavActive = updateNavActive;
+updateNavActive = function(pageId) {
+  originalUpdateNavActive(pageId);
+  
+  const pageKey = Object.keys(pageMap).find(k => pageMap[k] === pageId);
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.classList.remove('active');
+    if (item.getAttribute('data-page') === pageKey) {
+      item.classList.add('active');
+      // También marcar el toggle como activo si un hijo lo está
+      const toggle = item.closest('.nav-dropdown').querySelector('.dropdown-toggle');
+      if (toggle) toggle.classList.add('active');
+    }
+  });
+
+  // Si la página actual no es del dropdown, quitar activo del toggle
+  const dropdownPages = ['indicadores', 'genero', 'tendencias'];
+  if (!dropdownPages.includes(pageKey)) {
+    const toggle = document.querySelector('.dropdown-toggle');
+    if (toggle) toggle.classList.remove('active');
+  }
+};
+
+// ============================================
+// NAVEGACIÓN CON TECLAS DE FLECHA
+// ============================================
+document.addEventListener('keydown', (e) => {
+  // Solo navegar si no se está escribiendo en un input o textarea
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+  if (e.key === 'ArrowLeft') {
+    navigatePrev();
+  } else if (e.key === 'ArrowRight') {
+    navigateNext();
+  }
+});
